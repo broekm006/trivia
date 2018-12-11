@@ -1,6 +1,7 @@
 package com.uva.triva;
 
 import android.content.Context;
+import android.text.Html;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,8 +40,8 @@ public class QuestionsRequest implements Response.Listener<JSONObject>, Response
                 JSONObject specific = array.getJSONObject(i);
 
                 String category = specific.getString("category");
-                String question = specific.getString("question").replace("&quot;", "\"").replace("&#039;", "\'");
-                String correct_answer = specific.getString("correct_answer");
+                String question = Html.fromHtml(specific.getString("question")).toString();
+                String correct_answer = Html.fromHtml(specific.getString("correct_answer")).toString();
                 String incorrect_answers = specific.getString("incorrect_answers");
                 String difficulty = specific.getString("difficulty");
                 String type = specific.getString("type");

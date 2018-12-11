@@ -40,7 +40,7 @@ public class Leaderboards extends AppCompatActivity implements LeaderboardsReque
     }
 
     @Override
-    public void gotScore(ArrayList<String> Score) {
+    public void gotScore(ArrayList<Leaderboard> Score) {
 
     }
 

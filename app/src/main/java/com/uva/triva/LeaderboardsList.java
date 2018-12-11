@@ -27,8 +27,8 @@ public class LeaderboardsList extends AppCompatActivity implements LeaderboardsR
 
 
     @Override
-    public void gotScore(ArrayList<String> Score) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Score);
+    public void gotScore(ArrayList<Leaderboard> Score) {
+        LeaderboardCustomAdapter adapter = new LeaderboardCustomAdapter(this, Score);
         ListView listView = findViewById(R.id.Leaderboards);
         listView.setAdapter(adapter);
 
