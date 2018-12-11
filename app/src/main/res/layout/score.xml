@@ -12,18 +12,28 @@
 
         <TextView
             android:id="@+id/text_name"
-            android:layout_width="261dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:fontFamily="@font/aclonica"
-            android:text="name" />
+            android:gravity="center"
+            android:text="name"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/text_score"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:fontFamily="@font/aclonica"
-            android:text="score" />
+            android:gravity="center"
+            android:text="score"
+            android:textAlignment="center"
+            android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,9 @@
 package com.uva.triva;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +24,11 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
     private int points = 0;
     ArrayList<Question> temp_list;
 
+    Button btn1;
+    Button btn2;
+    Button btn3;
+    Button btn4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +40,14 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
     @Override
     public void gotQuestions(ArrayList<Question> questions) {
         temp_list = questions;
-        if (id < questions.size()){
+        if (id < questions.size()) {
             TextView txt = findViewById(R.id.textView);
             txt.setText(questions.get(id).getQuestion());
 
-            Button btn1 = findViewById(R.id.answer1);
-            Button btn2 = findViewById(R.id.answer2);
-            Button btn3 = findViewById(R.id.answer3);
-            Button btn4 = findViewById(R.id.answer4);
+            btn1 = findViewById(R.id.answer1);
+            btn2 = findViewById(R.id.answer2);
+            btn3 = findViewById(R.id.answer3);
+            btn4 = findViewById(R.id.answer4);
 
             Random rand = new Random();
             System.out.println(questions.get(id).getList());
@@ -48,49 +56,43 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
 
             int numberOfTimes = questions.get(id).getList().size();
 
-            for (int q = 0; q < numberOfTimes; q++){
+            for (int q = 0; q < numberOfTimes; q++) {
                 int randomize = rand.nextInt(newList.size());
                 String random_element = newList.get(randomize);
-                if (q == 0){
+                if (q == 0) {
                     btn1.setText(random_element);
-                }
-                else if (q == 1){
+                } else if (q == 1) {
                     btn2.setText(random_element);
-                }
-
-                else if (q == 2){
+                } else if (q == 2) {
                     btn3.setText(random_element);
-                }
-
-                else if (q == 3){
+                } else if (q == 3) {
                     btn4.setText(random_element);
                 }
                 newList.remove(randomize);
             }
-        }
-
-        else {
+        } else {
             Intent intent = new Intent(Questions.this, Leaderboards.class);
             intent.putExtra("points", points);
             startActivity(intent);
-            }
         }
+    }
 //        ArrayAdapter<Question> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, questions);
 //        ListView listView = findViewById(R.id.question_list);
 //        listView.setAdapter(adapter);
 //        listView.setOnItemClickListener(new Questions.ListViewClickListener());
 
-    public void answerGiven(View view){
+    public void answerGiven(View view) {
         Button button = (Button) view;
         String text = button.getText().toString();
-        if (temp_list.get(id).getCorrect_answer() == text){
+
+        if (temp_list.get(id).getCorrect_answer() == text) {
             points += 1;
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         }
 
         id += 1;
 
-        System.out.println("ID: " +  id);
-        System.out.println("Points: " + points);
+        //SystemClock.sleep(1000);
         gotQuestions(temp_list);
     }
 
@@ -98,13 +100,4 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
     public void gotQuestionsError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-
-//    private class ListViewClickListener implements AdapterView.OnItemClickListener{
-//        @Override
-//        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//            Intent intent = new Intent(Questions.this, Trivia.class);
-//            intent.putExtra("questions", adapterView.getItemAtPosition(i).toString());
-//            startActivity(intent);
-//        }
-//    }
 }

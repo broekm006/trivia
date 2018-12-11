@@ -26,7 +26,7 @@ public class LeaderboardCustomAdapter extends ArrayAdapter<Leaderboard> {
         Collections.sort(scores, new Comparator<Leaderboard>() {
             @Override
             public int compare(Leaderboard t1, Leaderboard t2) {
-                return t1.getPoints().compareTo(t2.getPoints());
+                return t2.getPoints().compareTo(t1.getPoints());
             }
         });
     }
