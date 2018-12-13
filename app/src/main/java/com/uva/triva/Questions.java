@@ -33,13 +33,18 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
+
+        // retrieve questions from request
         QuestionsRequest x = new QuestionsRequest(this);
         x.getQuestions(this);
     }
 
+
     @Override
     public void gotQuestions(ArrayList<Question> questions) {
         temp_list = questions;
+
+        // get questions from server and fill in the questions views
         if (id < questions.size()) {
             TextView txt = findViewById(R.id.textView);
             txt.setText(questions.get(id).getQuestion());
@@ -56,6 +61,7 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
 
             int numberOfTimes = questions.get(id).getList().size();
 
+            // choose random button for each answer to make sure the correct answer is not always on the same location
             for (int q = 0; q < numberOfTimes; q++) {
                 int randomize = rand.nextInt(newList.size());
                 String random_element = newList.get(randomize);
@@ -70,17 +76,17 @@ public class Questions extends AppCompatActivity implements QuestionsRequest.Cal
                 }
                 newList.remove(randomize);
             }
-        } else {
+        }
+
+        // when done with questions go the "win" screen
+        else {
             Intent intent = new Intent(Questions.this, Leaderboards.class);
             intent.putExtra("points", points);
             startActivity(intent);
         }
     }
-//        ArrayAdapter<Question> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, questions);
-//        ListView listView = findViewById(R.id.question_list);
-//        listView.setAdapter(adapter);
-//        listView.setOnItemClickListener(new Questions.ListViewClickListener());
 
+    // check when button is pressed if the answer is correct & update the points & ID
     public void answerGiven(View view) {
         Button button = (Button) view;
         String text = button.getText().toString();

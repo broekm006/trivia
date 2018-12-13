@@ -23,10 +23,12 @@ public class Leaderboards extends AppCompatActivity implements LeaderboardsReque
         q = new LeaderboardsRequest(this);
     }
 
+    // start a new game > go back to the main screen
     public void reset(View view){
         startActivity(new Intent(Leaderboards.this, MainActivity.class));
     }
 
+    // post results to a leaderboard (if the server is online)
     public void postToLeaderboards(View view){
         TextView getName = findViewById(R.id.name);
         String name = getName.getText().toString();

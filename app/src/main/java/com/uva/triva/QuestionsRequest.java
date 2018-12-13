@@ -30,6 +30,8 @@ public class QuestionsRequest implements Response.Listener<JSONObject>, Response
         callback.gotQuestionsError(error.getMessage());
     }
 
+
+    // get question(s) + information from the trivia API & add to a arraylist
     @Override
     public void onResponse(JSONObject response) {
         try{
@@ -64,6 +66,7 @@ public class QuestionsRequest implements Response.Listener<JSONObject>, Response
         this.context = c;
     }
 
+    // connect to api
     void getQuestions(Callback activity){
         RequestQueue queue = Volley.newRequestQueue(context);
         // post data to ide url >

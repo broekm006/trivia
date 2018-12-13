@@ -22,6 +22,7 @@ public class LeaderboardCustomAdapter extends ArrayAdapter<Leaderboard> {
         sortArrayList();
     }
 
+    // sort array list from highest number to lowest number
     private void sortArrayList(){
         Collections.sort(scores, new Comparator<Leaderboard>() {
             @Override
@@ -31,6 +32,8 @@ public class LeaderboardCustomAdapter extends ArrayAdapter<Leaderboard> {
         });
     }
 
+
+    // update leaderboard with correct details
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

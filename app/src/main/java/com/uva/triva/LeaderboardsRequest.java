@@ -29,6 +29,7 @@ public class LeaderboardsRequest implements Response.Listener<JSONArray>, Respon
         callback.gotScoreError(error.getMessage());
     }
 
+    // retrieve scoreboard from flask server to use in the leaderboards
     @Override
     public void onResponse(JSONArray response) {
         try{
@@ -68,16 +69,14 @@ public class LeaderboardsRequest implements Response.Listener<JSONArray>, Respon
         callback = activity;
     }
 
+    // post name + points to the flask server
     void postData(final String name, final String points){
         RequestQueue myQueue = Volley.newRequestQueue(context);
         String url = "https://ide50-marcyman1.cs50.io:8080/list";
         StringRequest strings = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
-                //This code is executed if the server responds, whether or not the response contains data.
-                //The String 'response' contains the server's response.
-            }
-        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            public void onResponse(String response) { }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println(error.getMessage());

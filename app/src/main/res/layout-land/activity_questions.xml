@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questions"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
@@ -19,8 +16,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="233dp"
-        android:layout_height="196dp"
+        android:layout_width="249dp"
+        android:layout_height="166dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         app:srcCompat="@drawable/pika" />
@@ -33,7 +30,7 @@
             android:id="@+id/answer1"
             android:layout_width="175dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="115dp"
             android:onClick="answerGiven"
             android:text="Button" />
 
@@ -41,6 +38,7 @@
             android:id="@+id/answer2"
             android:layout_width="175dp"
             android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
             android:onClick="answerGiven"
             android:text="Button" />
     </android.support.v7.widget.GridLayout>
@@ -53,7 +51,7 @@
             android:id="@+id/answer3"
             android:layout_width="175dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="115dp"
             android:onClick="answerGiven"
             android:text="Button" />
 
@@ -61,6 +59,7 @@
             android:id="@+id/answer4"
             android:layout_width="175dp"
             android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
             android:onClick="answerGiven"
             android:text="Button" />
     </android.support.v7.widget.GridLayout>

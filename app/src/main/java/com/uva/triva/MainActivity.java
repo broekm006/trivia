@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
+    // on click go to question page
     public void onButtonClick(View view){
         Intent intent = new Intent(MainActivity.this, Questions.class);
         startActivity(intent);

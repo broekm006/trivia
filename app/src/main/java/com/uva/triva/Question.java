@@ -1,9 +1,6 @@
 package com.uva.triva;
 
 import android.text.Html;
-
-import com.android.volley.toolbox.StringRequest;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +17,7 @@ public class Question {
         this.difficulty = difficulty;
         this.type = type;
 
+        // split incorrect answers and strip html tags
         String[] ss = this.incorrect_answers.split(","); // splitten op , kan niet in verband met vragen die een, gebruiken zoals datums > "21 april, 2014"
 
         one =  Html.fromHtml(ss[0]).toString();
