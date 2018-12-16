@@ -8,15 +8,6 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/title_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/aclonica"
-        android:text="Trivia"
-        android:textAlignment="center"
-        android:textSize="30sp" />
-
     <ImageView
         android:id="@+id/image_main"
         android:layout_width="match_parent"
@@ -28,7 +19,9 @@
         android:id="@+id/description_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:fontFamily="@font/aclonica"
+        android:gravity="center"
         android:text="Trivia. The game to text your knowledge of everything... Press the button below to get started."
         android:textAlignment="center"
         android:textSize="18sp" />
@@ -37,6 +30,7 @@
         android:id="@+id/button_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:onClick="onButtonClick"
         android:text="Press me to begin ..." />
 </LinearLayout>
